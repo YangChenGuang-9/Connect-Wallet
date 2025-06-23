@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { useConnect, Connector, useAccount, useDisconnect } from "wagmi"
+import { useConnect, Connector, useAccount } from "wagmi"
 import Image from "next/image";
 import Link from "next/link";
 import { walletList } from "@/lib/constants";
@@ -43,7 +43,6 @@ export default function Home() {
     }
   });
   const { isConnecting, isConnected } = useAccount();
-  const { disconnect } = useDisconnect();
   const mounted = useMounted();
   const [icon, setIcon] = useState("");
   const [open,setOpen] = useState(false);
@@ -60,15 +59,11 @@ export default function Home() {
     setOpen(isOpen)
   }
 
-  if(!mounted) {
-    return <></>
-  }
+  if(!mounted) { return <></> }
   if(isConnected) {
-    return (
-      <div className={"flex-1 flex items-center justify-center"}>
-        <AccountCard />
-      </div>
-    )
+    return <div className={"flex-1 flex items-center justify-center"}>
+      <AccountCard/>
+    </div>
   }
   return (
     <div className={"flex-1 flex items-center justify-center"}>

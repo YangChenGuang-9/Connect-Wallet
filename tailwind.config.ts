@@ -10,9 +10,6 @@ const config: Config = {
   theme: {
   	extend: {
 			fontColor: 'var(--font-color)',
-  		gridTemplateColumns: {
-  			'13': 'repeat(13, minmax(0, 1fr))'
-  		},
   		colors: {
 			  textColor: 'var(--text-color)',
 			  hoverColor: 'var(--hover-color)',
