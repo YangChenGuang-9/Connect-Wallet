@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { useAccount, useDisconnect, useBalance } from "wagmi";
 import {useState} from "react";
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "@/components/ui/popover"
 
 export default function AccountCard() {
 	const { address } = useAccount();
@@ -21,13 +26,12 @@ export default function AccountCard() {
 	return (
 		<div className="flex flex-col gap-6">
 			<div className="flex items-center gap-2">
-				<Label htmlFor="email" className={"text-lg"}>Address:</Label>
+				<Label htmlFor="email" className={"text-lg text-muted-foreground"}>Address:</Label>
 				<p id="email">{address}</p>
 			</div>
 			<div className="flex items-center gap-2">
-				<Label htmlFor="eth" className={"text-lg"}>assets:</Label>
-				<p id="eth">{ isLoading ? "loading..." : `${data?.formatted} ${data?.symbol}`}</p>
-				{isLoading}
+				<Label htmlFor="eth" className={"text-lg text-muted-foreground"}>assets:</Label>
+				<p id="eth">{isLoading ? "loading..." : `${data?.formatted} ${data?.symbol}`}</p>
 			</div>
 			<div className="flex items-center gap-2">
 				<Button
@@ -37,13 +41,33 @@ export default function AccountCard() {
 				>
 					{copyStatus ? <span className={"text-green-600 "}>Copied! 😀</span> : "Copy Address"}
 				</Button>
-				<Button
-					variant={"outline"}
-					onClick={() => disconnect()}
-					className={"w-full hover:text-sky-500 hover:border-sky-500 hover:bg-transparent"}
-				>
-					Disconnect
-				</Button>
+
+				<Popover>
+					<PopoverTrigger asChild>
+						<Button
+							variant={"outline"}
+							className={"w-full hover:text-red-600 hover:border-red-600 hover:bg-transparent"}
+						>
+							Disconnect
+						</Button>
+					</PopoverTrigger>
+					<PopoverContent className="w-45" side="top" align="center" sideOffset={8}>
+						<div className="grid gap-4">
+							<div className="space-y-2">
+								<p className="text-muted-foreground text-sm">
+									Please confirm whether to disconnect.
+								</p>
+								<Button
+									onClick={() => disconnect()}
+									variant={"outline"}
+									className={"w-16 h-7 float-right"}
+								>
+									Confirm
+								</Button>
+							</div>
+						</div>
+					</PopoverContent>
+				</Popover>
 			</div>
 		</div>
 	)

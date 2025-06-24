@@ -4,6 +4,13 @@ import Provider from "./Provider";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {ArrowRight} from "lucide-react";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Connect-Wallet",
+  description:
+    "基于nextjs、wagmi、shadcn ui的前端项目，用于展示和使用钱包连接相关的功能。",
+};
 
 export default function RootLayout({
   children,
@@ -18,7 +25,7 @@ export default function RootLayout({
         />
         <Provider>
           <div className={"fixed top-6 right-6"}>
-            <Link className={"w-full"} href={"https://github.com/904898313/Connect-Wallet"} target={"_blank"}>
+            <Link className={"w-full"} href={"https://github.com/YangChenGuang-9/Connect-Wallet"} target={"_blank"}>
               <Button
                 variant={"expandIcon"}
                 className="h-fit rounded-full bg-secondary font-semibold text-foreground hover:bg-secondary/70"
@@ -31,7 +38,7 @@ export default function RootLayout({
           {children}
           <div className={"fixed bottom-6 left-1/2 -translate-x-1/2"}>
             <span className={"text-secondary-foreground font-thin"}>Crafted by&nbsp;</span>
-            <Link href={"https://github.com/904898313"} target={"_blank"}>
+            <Link href={"https://github.com/YangChenGuang-9"} target={"_blank"}>
               <span className={"font-bold hover:underline hover:cursor-pointer"}>YangChenGuange</span>
             </Link>
           </div>
