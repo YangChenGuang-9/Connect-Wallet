@@ -6,6 +6,10 @@
 ## 在线预览
 [https://connect-wallet-black.vercel.app/](https://connect-wallet-black.vercel.app/)
 
+![Demo](./public/img/img.png)
+![Demo](./public/img/img_1.png)
+![Demo](./public/img/img_2.png)
+
 ## 本地启动流程
 - node版本:`建议 Node 版本为 18.17.0 及以上，最佳为 Node.js 20+`
 - 安装依赖
