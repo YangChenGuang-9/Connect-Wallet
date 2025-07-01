@@ -24,13 +24,13 @@ export default function AccountCard() {
 		setTimeout(() => setCopyStatus(false),1500)
 	}
 	return (
-		<div className="flex flex-col gap-6">
-			<div className="flex items-center gap-2">
-				<Label htmlFor="email" className={"text-lg text-muted-foreground"}>Address:</Label>
+		<div className="flex flex-col gap-5">
+			<div className="flex flex-col sm:flex-row items-center gap-2">
+				<Label htmlFor="email" className={"text-lg text-muted-foreground self-start font-bold"}>Address:</Label>
 				<p id="email">{address}</p>
 			</div>
 			<div className="flex items-center gap-2">
-				<Label htmlFor="eth" className={"text-lg text-muted-foreground"}>assets:</Label>
+				<Label htmlFor="eth" className={"text-lg text-muted-foreground font-bold"}>Assets:</Label>
 				<p id="eth">{isLoading ? "loading..." : `${data?.formatted} ${data?.symbol}`}</p>
 			</div>
 			<div className="flex items-center gap-2">
@@ -51,7 +51,7 @@ export default function AccountCard() {
 							Disconnect
 						</Button>
 					</PopoverTrigger>
-					<PopoverContent className="w-45" side="top" align="center" sideOffset={8}>
+					<PopoverContent className="w-45 mr-2" side="top" align="center" sideOffset={8}>
 						<div className="grid gap-4">
 							<div className="space-y-2">
 								<p className="text-muted-foreground text-sm">

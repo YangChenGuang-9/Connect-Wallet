@@ -36,8 +36,8 @@ export default function RootLayout({
             </Link>
           </div>
           {children}
-          <div className={"fixed bottom-6 left-1/2 -translate-x-1/2"}>
-            <span className={"text-secondary-foreground font-thin"}>Crafted by&nbsp;</span>
+          <div className={"fixed flex items-center bottom-6 left-1/2 -translate-x-1/2"}>
+            <p className={"text-secondary-foreground font-thin w-20"}>Crafted by&nbsp;</p>
             <Link href={"https://github.com/YangChenGuang-9"} target={"_blank"}>
               <span className={"font-bold hover:underline hover:cursor-pointer"}>YangChenGuange</span>
             </Link>
