@@ -27,7 +27,6 @@ export default function AccountCard() {
 
 	const {
 		sendTransaction,
-		isLoading: txLoading,
 		isSuccess: txSuccess,
 		isError: txIsError,
 		reset: resetTx
@@ -130,22 +129,20 @@ export default function AccountCard() {
 					placeholder="Target Address"
 					value={toAddress}
 					onChange={e => setToAddress(e.target.value)}
-					disabled={txLoading}
 				/>
 				<input
 					className="border rounded px-2 py-1 text-sm"
 					placeholder="Amount (ETH)"
 					value={amount}
 					onChange={e => setAmount(e.target.value)}
-					disabled={txLoading}
 				/>
 				<Button
 					variant="default"
 					className="w-full mt-2"
 					onClick={handleSend}
-					disabled={txLoading || !address}
+					disabled={!address}
 				>
-					{txLoading ? "Sending..." : "Send"}
+					Send
 				</Button>
 				{txSuccess && <div className="text-green-600 text-xs mt-1">Transaction confirmed!</div>}
 				{txIsError && <div className="text-red-600 text-xs mt-1">Transaction Failure!</div>}
