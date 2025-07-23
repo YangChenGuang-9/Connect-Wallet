@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-      <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${zcoolXiaoWei.className} flex flex-col min-h-screen relative text-textColor`}>
         <div
           className="absolute h-screen w-screen z-[-1] bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:25px_25px] opacity-30 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"
@@ -44,6 +44,6 @@ export default function RootLayout({
           </div>
         </Provider>
       </body>
-      </html>
+    </html>
   );
 }
